@@ -2,7 +2,7 @@
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-
+import java.io.FileWriter;
 
 
 public class Main {
@@ -38,20 +38,29 @@ public class Main {
 
                 double y1 = y;
                 double x1 = x;
+                double z = 0;
                 if (words[1].equals("+")) {
-                    System.out.println(y1 + x1);
+                    z = y1 + x1;
+                    System.out.println(z);
                 }
                 if (words[1].equals("-")) {
-                    System.out.println(y1 - x1);
+                    z = y1 - x1;
+                    System.out.println(z);
                 }
                 if (words[1].equals("*")) {
-                    System.out.println(y1 * x1);
+                    z = y1 * x1;
+                    System.out.println(z);
                 }
                 if (words[1].equals("/")) {
-                    System.out.println(y1 / x1);
+                    z = y1 / x1;
+                    System.out.println(z);
 
                 }
-
+                String answer = Double.toString(z);
+                FileWriter writer = new FileWriter("D:\\answer.txt", false);
+                writer.write(answer);
+                writer.append('\n');
+                writer.flush();
 
             } catch (Exception ex) {
                 System.out.println(ex.getMessage());
